@@ -1,40 +1,100 @@
 import com.xenojoshua.xjf.netty.client.XjfNettyClient;
+import com.xenojoshua.xjf.netty.server.XjfNettyServer;
 import com.xenojoshua.xjf.system.XjfSystem;
+import com.xenojoshua.xjf.util.XjfValidator;
+
+import java.util.ArrayList;
 
 public class Runner {
 
     public static void main(String[] args) throws Exception {
-        // Print usage if no argument is specified.
-        if (args.length < 2 || args.length > 3) {
-            System.err.println(
-                "Usage: " + Runner.class.getSimpleName() + " <host> <port>"
-            );
-            return;
+
+        if (args.length != 4) {
+            Runner.printUsage();return;
         }
 
-        System.out.println("[xjf-netty-client] start...");
+        // initialize params
+        boolean isIDE = false;
+        String  mode = "server";
+        String  host = "127.0.0.1";
+        int     port = 8080;
+
+        // validation args[0]
+        if (!XjfValidator.isNumeric(args[0])) {
+            Runner.printUsage();return;
+        }
+        int ideParam = Integer.parseInt(args[0]);
+        if (ideParam != 0 && ideParam != 1) {
+            Runner.printUsage();return;
+        } else if (ideParam == 1) {
+            isIDE = true;
+        }
+        // validation args[1]
+        if (!args[1].equals("client") && !args[1].equals("server")) {
+            Runner.printUsage();return;
+        } else {
+            mode = args[1];
+        }
+        // validation args[2]
+        if (!XjfValidator.isIP(args[2])) {
+            Runner.printUsage();return;
+        } else {
+            host = args[2];
+        }
+        // validation args[3]
+        if (!XjfValidator.isNumeric(args[3])) {
+            Runner.printUsage();return;
+        }
+        int portParam = Integer.parseInt(args[3]);
+        if (!XjfValidator.isPort(portParam)) {
+            Runner.printUsage();return;
+        } else {
+            port = portParam;
+        }
+
+        System.out.println(
+            String.format(
+                "[xjf-netty] start with: %s %s %s %s ...",
+                    args
+            )
+        );
 
         String jarFilePath = Runner.class.getProtectionDomain().getCodeSource().getLocation().getFile();
         jarFilePath = jarFilePath.substring(0, jarFilePath.lastIndexOf("/") + 1);
 
-        if (args.length > 0 && args[0].equals("ide")
-                && jarFilePath.contains("classes")) { // means run in IDE("IntelliJ IDEA"), remove the tailing "classes"
+        if (isIDE && jarFilePath.contains("classes")) { // means run in IDE("IntelliJ IDEA"), remove the tailing "classes"
             jarFilePath = jarFilePath.substring(0, jarFilePath.lastIndexOf("classes"));
         }
 
         XjfSystem.init(jarFilePath);
 
-        final String host = args[1];
-        final int port = Integer.parseInt(args[2]);
+        if (mode.equals("server")) {
 
-        XjfNettyClient client = new XjfNettyClient(host, port);
+            new XjfNettyServer().run();
 
-        // push message before client start
-        client.send("CLIENT_MSG_TST_001");
-        client.send("CLIENT_MSG_TST_002");
-        client.send("CLIENT_MSG_TST_003");
-        client.send("CLIENT_MSG_TST_004");
+        } else if (mode.equals("client")) {
 
-        client.run();
+            XjfNettyClient client = new XjfNettyClient(host, port);
+
+            client.send("CLIENT_MSG_TST_001");
+            client.send("CLIENT_MSG_TST_002");
+            client.send("CLIENT_MSG_TST_003");
+            client.send("CLIENT_MSG_TST_004");
+
+            client.run();
+
+        }
+    }
+
+    /**
+     * Print the usage information.
+     */
+    private static void printUsage() {
+        System.err.println(
+            String.format(
+                "Usage: %s <ide:1|0> <mode:server|client> <host> <port>",
+                Runner.class.getSimpleName()
+            )
+        );
     }
 }
