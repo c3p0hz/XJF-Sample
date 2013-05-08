@@ -70,7 +70,7 @@ public class Runner {
 
         if (mode.equals("server")) {
 
-            new XjfNettyServer().run();
+            new XjfNettyServer(host, port).run();
 
         } else if (mode.equals("client")) {
 
