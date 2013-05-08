@@ -19,7 +19,7 @@ public class Runner {
         String  host = "127.0.0.1";
         int     port = 8080;
 
-        // validation args[0]
+        // isIDE: validation args[0]
         if (!XjfValidator.isNumeric(args[0])) {
             Runner.printUsage();return;
         }
@@ -29,19 +29,19 @@ public class Runner {
         } else if (ideParam == 1) {
             isIDE = true;
         }
-        // validation args[1]
+        // mode: validation args[1]
         if (!args[1].equals("client") && !args[1].equals("server")) {
             Runner.printUsage();return;
         } else {
             mode = args[1];
         }
-        // validation args[2]
+        // host: validation args[2]
         if (!XjfValidator.isIP(args[2])) {
             Runner.printUsage();return;
         } else {
             host = args[2];
         }
-        // validation args[3]
+        // port: validation args[3]
         if (!XjfValidator.isNumeric(args[3])) {
             Runner.printUsage();return;
         }
