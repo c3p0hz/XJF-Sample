@@ -1,0 +1,10 @@
+import "player.proto";
+
+option java_package = "com.xenojoshua.xjf.netty.protobuf.protos";
+option java_outer_classname = "GroupProto";
+
+message Group {
+    required int32 id = 1;
+    required string name = 2;
+    repeated Player players = 3;
+}

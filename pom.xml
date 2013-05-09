@@ -15,6 +15,9 @@
         <finalJarName>${finalName}.jar</finalJarName>
         <mainClass>Runner</mainClass>
         <resourceDir>${project.basedir}/src/resources</resourceDir>
+        <protobufCmd>/opt/local/bin/protoc</protobufCmd>
+        <protobufSources>${project.basedir}/src/protobuf</protobufSources>
+        <protobufOutput>${project.build.sourceDirectory}/com/xenojoshua/xjf/netty/protobuf/protos</protobufOutput>
     </properties>
 
     <build>
@@ -132,6 +135,36 @@
                 <version>1.7</version>
                 <executions>
                     <execution>
+                        <id>clean-protocol-buffers</id>
+                        <phase>initialize</phase>
+                        <configuration>
+                            <target>
+                                <delete includeemptydirs="true">
+                                    <fileset dir="${protobufOutput}" includes="**/*"/>
+                                </delete>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>generate-protocol-buffers</id>
+                        <phase>process-resources</phase>
+                        <configuration>
+                            <target>
+                                <exec executable="bash" failonerror="true">
+                                    <arg value="-c"/>
+                                    <arg value="${protobufCmd} --proto_path=${protobufSources} --java_out=${project.build.sourceDirectory} ${protobufSources}/*.proto"/>
+                                </exec>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>tar-final-package</id>
                         <phase>package</phase>
                         <configuration>
                             <target>

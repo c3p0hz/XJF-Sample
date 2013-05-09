@@ -1,0 +1,6 @@
+option java_package = "com.xenojoshua.xjf.netty.protobuf.protos";
+option java_outer_classname = "IntProto";
+
+message Int {
+    required int32 id = 1;
+}

@@ -1,13 +1,22 @@
 import com.xenojoshua.xjf.netty.client.XjfNettyClient;
+import com.xenojoshua.xjf.netty.protobuf.ProtoRunner;
 import com.xenojoshua.xjf.netty.server.XjfNettyServer;
 import com.xenojoshua.xjf.system.XjfSystem;
 import com.xenojoshua.xjf.util.XjfValidator;
 
-import java.util.ArrayList;
-
 public class Runner {
 
     public static void main(String[] args) throws Exception {
+
+        //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+        // START FIELD FOR TEST
+        //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+        // ProtoRunner.run();
+
+        //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+        // END FIELD FOR TEST
+        //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
         if (args.length != 4) {
             Runner.printUsage();return;
