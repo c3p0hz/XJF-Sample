@@ -55,7 +55,7 @@ public class Runner {
         System.out.println(
             String.format(
                 "[xjf-netty] start with: %s %s %s %s ...",
-                    args
+                    args[0], args[1], args[2], args[3]
             )
         );
 
