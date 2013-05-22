@@ -1,6 +1,7 @@
 import com.xenojoshua.xjf.netty.client.XjfNettyClient;
 import com.xenojoshua.xjf.netty.protobuf.ProtoRunner;
 import com.xenojoshua.xjf.netty.server.XjfNettyServer;
+import com.xenojoshua.xjf.netty.template.TplRunner;
 import com.xenojoshua.xjf.system.XjfSystem;
 import com.xenojoshua.xjf.util.XjfValidator;
 
@@ -12,7 +13,8 @@ public class Runner {
         // START FIELD FOR TEST
         //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
-        // ProtoRunner.run();
+//        ProtoRunner.run();
+//        TplRunner.run();
 
         //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
         // END FIELD FOR TEST
