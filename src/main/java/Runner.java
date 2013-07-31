@@ -1,8 +1,11 @@
 import com.xenojoshua.xjf.netty.client.XjfNettyClient;
+import com.xenojoshua.xjf.netty.client.XjfNettyClientImpl;
 import com.xenojoshua.xjf.netty.protobuf.ProtoRunner;
-import com.xenojoshua.xjf.netty.server.XjfNettyServer;
+import com.xenojoshua.xjf.netty.protobuf.protos.Communication;
+import com.xenojoshua.xjf.netty.server.XjfNettyServerImpl;
 import com.xenojoshua.xjf.netty.template.TplRunner;
 import com.xenojoshua.xjf.system.XjfSystem;
+import com.xenojoshua.xjf.util.XjfUtil;
 import com.xenojoshua.xjf.util.XjfValidator;
 
 public class Runner {
@@ -28,7 +31,7 @@ public class Runner {
         boolean isIDE = false;
         String  mode = "server";
         String  host = "127.0.0.1";
-        int     port = 8080;
+        int     port = 10000;
 
         // isIDE: validation args[0]
         if (!XjfValidator.isNumeric(args[0])) {
@@ -81,16 +84,26 @@ public class Runner {
 
         if (mode.equals("server")) {
 
-            new XjfNettyServer(host, port).run();
+            new XjfNettyServerImpl(host, port).run();
 
         } else if (mode.equals("client")) {
 
-            XjfNettyClient client = new XjfNettyClient(host, port);
+            XjfNettyClient client = new XjfNettyClientImpl(host, port);
 
-            client.send("CLIENT_MSG_TST_001");
-            client.send("CLIENT_MSG_TST_002");
-            client.send("CLIENT_MSG_TST_003");
-            client.send("CLIENT_MSG_TST_004");
+            // build message
+            Communication.Player.Builder playerBuilder = Communication.Player.newBuilder();
+            playerBuilder.setId(292514701).setName("jonathan").setPassword(XjfUtil.md5("mypassword"));
+            Communication.Player jonathan = playerBuilder.build();
+
+            Communication.I1001.Builder I1001Builder = Communication.I1001.newBuilder();
+            I1001Builder.setPlayer(jonathan);
+            Communication.I1001 i1001 = I1001Builder.build();
+
+            Communication.XjfMessages.Builder messagesBuilder = Communication.XjfMessages.newBuilder();
+            messagesBuilder.setI1001(i1001);
+            Communication.XjfMessages message = messagesBuilder.build();
+
+            client.send(message);
 
             client.run();
 

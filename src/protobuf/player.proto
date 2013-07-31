@@ -1,8 +1,0 @@
-option java_package = "com.xenojoshua.xjf.netty.protobuf.protos";
-option java_outer_classname = "PlayerProto";
-
-message Player {
-    required int32 id = 1;
-    required string name = 2;
-    required string password = 3;
-}

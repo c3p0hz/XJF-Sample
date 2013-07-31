@@ -1,0 +1,35 @@
+option java_package = "com.xenojoshua.xjf.netty.protobuf.protos";
+
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//-* Models
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+message Player {
+    required int32 id = 1;
+    required string name = 2;
+    required string password = 3;
+}
+
+message PlayerGroup {
+    required int32 id = 1;
+    required string name = 2;
+    repeated Player players = 3;
+}
+
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//-* APIs
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+message I1001 {
+    required Player player = 1;
+}
+
+message I1002 {
+    required PlayerGroup group = 1;
+}
+
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//-* Messages Object
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+message XjfMessages {
+    optional I1001 i1001 = 1;
+    optional I1002 i1002 = 2;
+}
