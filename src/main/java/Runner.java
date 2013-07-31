@@ -90,20 +90,32 @@ public class Runner {
 
             XjfNettyClient client = new XjfNettyClientImpl(host, port);
 
-            // build message
+            // build players
             Communication.Player.Builder playerBuilder = Communication.Player.newBuilder();
-            playerBuilder.setId(292514701).setName("jonathan").setPassword(XjfUtil.md5("mypassword"));
-            Communication.Player jonathan = playerBuilder.build();
+            Communication.Player jonathan = playerBuilder.setId(292514701).setName("jonathan").setPassword(XjfUtil.md5("mypassword")).build();
 
+            Communication.Player luke = playerBuilder.clear().setId(287138441).setName("luke").setPassword(XjfUtil.md5("123")).build();
+
+            // build group
+            Communication.PlayerGroup.Builder groupBuilder = Communication.PlayerGroup.newBuilder();
+            Communication.PlayerGroup programmers = groupBuilder.setId(100).setName("Programmer").addPlayers(jonathan).addPlayers(luke).build();
+
+            // build & send I1001
             Communication.I1001.Builder I1001Builder = Communication.I1001.newBuilder();
-            I1001Builder.setPlayer(jonathan);
-            Communication.I1001 i1001 = I1001Builder.build();
+            Communication.I1001 i1001 = I1001Builder.setPlayer(jonathan).build();
 
-            Communication.XjfMessages.Builder messagesBuilder = Communication.XjfMessages.newBuilder();
-            messagesBuilder.setI1001(i1001);
-            Communication.XjfMessages message = messagesBuilder.build();
+            Communication.XjfMessage.Builder messagesBuilder = Communication.XjfMessage.newBuilder();
+            Communication.XjfMessage messageI1001 = messagesBuilder.setType(Communication.XjfMessageType.T1001).setI1001(i1001).build();
 
-            client.send(message);
+            client.send(messageI1001);
+
+            // build & send I1002
+            Communication.I1002.Builder I1002Builder = Communication.I1002.newBuilder();
+            Communication.I1002 i1002 = I1002Builder.setGroup(programmers).build();
+
+            Communication.XjfMessage messageI1002 = messagesBuilder.clear().setType(Communication.XjfMessageType.T1002).setI1002(i1002).build();
+
+            client.send(messageI1002);
 
             client.run();
 

@@ -8,6 +8,94 @@ public final class Communication {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
+  /**
+   * Protobuf enum {@code XjfMessageType}
+   *
+   * <pre>
+   *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+   *-* Messages Object
+   *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+   * </pre>
+   */
+  public enum XjfMessageType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>T1001 = 1;</code>
+     */
+    T1001(0, 1),
+    /**
+     * <code>T1002 = 2;</code>
+     */
+    T1002(1, 2),
+    ;
+
+    /**
+     * <code>T1001 = 1;</code>
+     */
+    public static final int T1001_VALUE = 1;
+    /**
+     * <code>T1002 = 2;</code>
+     */
+    public static final int T1002_VALUE = 2;
+
+
+    public final int getNumber() { return value; }
+
+    public static XjfMessageType valueOf(int value) {
+      switch (value) {
+        case 1: return T1001;
+        case 2: return T1002;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<XjfMessageType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<XjfMessageType>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<XjfMessageType>() {
+            public XjfMessageType findValueByNumber(int number) {
+              return XjfMessageType.valueOf(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.xenojoshua.xjf.netty.protobuf.protos.Communication.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final XjfMessageType[] VALUES = values();
+
+    public static XjfMessageType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int index;
+    private final int value;
+
+    private XjfMessageType(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:XjfMessageType)
+  }
+
   public interface PlayerOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
@@ -2752,62 +2840,66 @@ public final class Communication {
     // @@protoc_insertion_point(class_scope:I1002)
   }
 
-  public interface XjfMessagesOrBuilder
+  public interface XjfMessageOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional .I1001 i1001 = 1;
+    // required .XjfMessageType type = 1;
     /**
-     * <code>optional .I1001 i1001 = 1;</code>
+     * <code>required .XjfMessageType type = 1;</code>
+     */
+    boolean hasType();
+    /**
+     * <code>required .XjfMessageType type = 1;</code>
+     */
+    com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessageType getType();
+
+    // optional .I1001 i1001 = 2;
+    /**
+     * <code>optional .I1001 i1001 = 2;</code>
      */
     boolean hasI1001();
     /**
-     * <code>optional .I1001 i1001 = 1;</code>
+     * <code>optional .I1001 i1001 = 2;</code>
      */
     com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001 getI1001();
     /**
-     * <code>optional .I1001 i1001 = 1;</code>
+     * <code>optional .I1001 i1001 = 2;</code>
      */
     com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001OrBuilder getI1001OrBuilder();
 
-    // optional .I1002 i1002 = 2;
+    // optional .I1002 i1002 = 3;
     /**
-     * <code>optional .I1002 i1002 = 2;</code>
+     * <code>optional .I1002 i1002 = 3;</code>
      */
     boolean hasI1002();
     /**
-     * <code>optional .I1002 i1002 = 2;</code>
+     * <code>optional .I1002 i1002 = 3;</code>
      */
     com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002 getI1002();
     /**
-     * <code>optional .I1002 i1002 = 2;</code>
+     * <code>optional .I1002 i1002 = 3;</code>
      */
     com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002OrBuilder getI1002OrBuilder();
   }
   /**
-   * Protobuf type {@code XjfMessages}
-   *
-   * <pre>
-   *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-   *-* Messages Object
-   *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-   * </pre>
+   * Protobuf type {@code XjfMessage}
    */
-  public static final class XjfMessages extends
+  public static final class XjfMessage extends
       com.google.protobuf.GeneratedMessage
-      implements XjfMessagesOrBuilder {
-    // Use XjfMessages.newBuilder() to construct.
-    private XjfMessages(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements XjfMessageOrBuilder {
+    // Use XjfMessage.newBuilder() to construct.
+    private XjfMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private XjfMessages(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private XjfMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final XjfMessages defaultInstance;
-    public static XjfMessages getDefaultInstance() {
+    private static final XjfMessage defaultInstance;
+    public static XjfMessage getDefaultInstance() {
       return defaultInstance;
     }
 
-    public XjfMessages getDefaultInstanceForType() {
+    public XjfMessage getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -2817,7 +2909,7 @@ public final class Communication {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private XjfMessages(
+    private XjfMessage(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2840,9 +2932,20 @@ public final class Communication {
               }
               break;
             }
-            case 10: {
+            case 8: {
+              int rawValue = input.readEnum();
+              com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessageType value = com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessageType.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(1, rawValue);
+              } else {
+                bitField0_ |= 0x00000001;
+                type_ = value;
+              }
+              break;
+            }
+            case 18: {
               com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
                 subBuilder = i1001_.toBuilder();
               }
               i1001_ = input.readMessage(com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001.PARSER, extensionRegistry);
@@ -2850,12 +2953,12 @@ public final class Communication {
                 subBuilder.mergeFrom(i1001_);
                 i1001_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000001;
+              bitField0_ |= 0x00000002;
               break;
             }
-            case 18: {
+            case 26: {
               com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
                 subBuilder = i1002_.toBuilder();
               }
               i1002_ = input.readMessage(com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002.PARSER, extensionRegistry);
@@ -2863,7 +2966,7 @@ public final class Communication {
                 subBuilder.mergeFrom(i1002_);
                 i1002_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000004;
               break;
             }
           }
@@ -2880,77 +2983,94 @@ public final class Communication {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.xenojoshua.xjf.netty.protobuf.protos.Communication.internal_static_XjfMessages_descriptor;
+      return com.xenojoshua.xjf.netty.protobuf.protos.Communication.internal_static_XjfMessage_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.xenojoshua.xjf.netty.protobuf.protos.Communication.internal_static_XjfMessages_fieldAccessorTable
+      return com.xenojoshua.xjf.netty.protobuf.protos.Communication.internal_static_XjfMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages.class, com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages.Builder.class);
+              com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage.class, com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<XjfMessages> PARSER =
-        new com.google.protobuf.AbstractParser<XjfMessages>() {
-      public XjfMessages parsePartialFrom(
+    public static com.google.protobuf.Parser<XjfMessage> PARSER =
+        new com.google.protobuf.AbstractParser<XjfMessage>() {
+      public XjfMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new XjfMessages(input, extensionRegistry);
+        return new XjfMessage(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<XjfMessages> getParserForType() {
+    public com.google.protobuf.Parser<XjfMessage> getParserForType() {
       return PARSER;
     }
 
     private int bitField0_;
-    // optional .I1001 i1001 = 1;
-    public static final int I1001_FIELD_NUMBER = 1;
-    private com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001 i1001_;
+    // required .XjfMessageType type = 1;
+    public static final int TYPE_FIELD_NUMBER = 1;
+    private com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessageType type_;
     /**
-     * <code>optional .I1001 i1001 = 1;</code>
+     * <code>required .XjfMessageType type = 1;</code>
      */
-    public boolean hasI1001() {
+    public boolean hasType() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional .I1001 i1001 = 1;</code>
+     * <code>required .XjfMessageType type = 1;</code>
+     */
+    public com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessageType getType() {
+      return type_;
+    }
+
+    // optional .I1001 i1001 = 2;
+    public static final int I1001_FIELD_NUMBER = 2;
+    private com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001 i1001_;
+    /**
+     * <code>optional .I1001 i1001 = 2;</code>
+     */
+    public boolean hasI1001() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional .I1001 i1001 = 2;</code>
      */
     public com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001 getI1001() {
       return i1001_;
     }
     /**
-     * <code>optional .I1001 i1001 = 1;</code>
+     * <code>optional .I1001 i1001 = 2;</code>
      */
     public com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001OrBuilder getI1001OrBuilder() {
       return i1001_;
     }
 
-    // optional .I1002 i1002 = 2;
-    public static final int I1002_FIELD_NUMBER = 2;
+    // optional .I1002 i1002 = 3;
+    public static final int I1002_FIELD_NUMBER = 3;
     private com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002 i1002_;
     /**
-     * <code>optional .I1002 i1002 = 2;</code>
+     * <code>optional .I1002 i1002 = 3;</code>
      */
     public boolean hasI1002() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional .I1002 i1002 = 2;</code>
+     * <code>optional .I1002 i1002 = 3;</code>
      */
     public com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002 getI1002() {
       return i1002_;
     }
     /**
-     * <code>optional .I1002 i1002 = 2;</code>
+     * <code>optional .I1002 i1002 = 3;</code>
      */
     public com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002OrBuilder getI1002OrBuilder() {
       return i1002_;
     }
 
     private void initFields() {
+      type_ = com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessageType.T1001;
       i1001_ = com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001.getDefaultInstance();
       i1002_ = com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002.getDefaultInstance();
     }
@@ -2959,6 +3079,10 @@ public final class Communication {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
+      if (!hasType()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       if (hasI1001()) {
         if (!getI1001().isInitialized()) {
           memoizedIsInitialized = 0;
@@ -2979,10 +3103,13 @@ public final class Communication {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, i1001_);
+        output.writeEnum(1, type_.getNumber());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, i1002_);
+        output.writeMessage(2, i1001_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, i1002_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -2995,11 +3122,15 @@ public final class Communication {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, i1001_);
+          .computeEnumSize(1, type_.getNumber());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, i1002_);
+          .computeMessageSize(2, i1001_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, i1002_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -3013,53 +3144,53 @@ public final class Communication {
       return super.writeReplace();
     }
 
-    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages parseFrom(
+    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages parseFrom(
+    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages parseFrom(byte[] data)
+    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages parseFrom(
+    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages parseFrom(java.io.InputStream input)
+    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages parseFrom(
+    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages parseDelimitedFrom(java.io.InputStream input)
+    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages parseDelimitedFrom(
+    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages parseFrom(
+    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages parseFrom(
+    public static com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3068,7 +3199,7 @@ public final class Communication {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages prototype) {
+    public static Builder newBuilder(com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -3080,30 +3211,24 @@ public final class Communication {
       return builder;
     }
     /**
-     * Protobuf type {@code XjfMessages}
-     *
-     * <pre>
-     *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-     *-* Messages Object
-     *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-     * </pre>
+     * Protobuf type {@code XjfMessage}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessagesOrBuilder {
+       implements com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.xenojoshua.xjf.netty.protobuf.protos.Communication.internal_static_XjfMessages_descriptor;
+        return com.xenojoshua.xjf.netty.protobuf.protos.Communication.internal_static_XjfMessage_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.xenojoshua.xjf.netty.protobuf.protos.Communication.internal_static_XjfMessages_fieldAccessorTable
+        return com.xenojoshua.xjf.netty.protobuf.protos.Communication.internal_static_XjfMessage_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages.class, com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages.Builder.class);
+                com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage.class, com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage.Builder.class);
       }
 
-      // Construct using com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages.newBuilder()
+      // Construct using com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3125,18 +3250,20 @@ public final class Communication {
 
       public Builder clear() {
         super.clear();
+        type_ = com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessageType.T1001;
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (i1001Builder_ == null) {
           i1001_ = com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001.getDefaultInstance();
         } else {
           i1001Builder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         if (i1002Builder_ == null) {
           i1002_ = com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002.getDefaultInstance();
         } else {
           i1002Builder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -3146,35 +3273,39 @@ public final class Communication {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.xenojoshua.xjf.netty.protobuf.protos.Communication.internal_static_XjfMessages_descriptor;
+        return com.xenojoshua.xjf.netty.protobuf.protos.Communication.internal_static_XjfMessage_descriptor;
       }
 
-      public com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages getDefaultInstanceForType() {
-        return com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages.getDefaultInstance();
+      public com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage getDefaultInstanceForType() {
+        return com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage.getDefaultInstance();
       }
 
-      public com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages build() {
-        com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages result = buildPartial();
+      public com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage build() {
+        com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages buildPartial() {
-        com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages result = new com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages(this);
+      public com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage buildPartial() {
+        com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage result = new com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
+        }
+        result.type_ = type_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
         }
         if (i1001Builder_ == null) {
           result.i1001_ = i1001_;
         } else {
           result.i1001_ = i1001Builder_.build();
         }
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
         }
         if (i1002Builder_ == null) {
           result.i1002_ = i1002_;
@@ -3187,16 +3318,19 @@ public final class Communication {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages) {
-          return mergeFrom((com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages)other);
+        if (other instanceof com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage) {
+          return mergeFrom((com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages other) {
-        if (other == com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage other) {
+        if (other == com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage.getDefaultInstance()) return this;
+        if (other.hasType()) {
+          setType(other.getType());
+        }
         if (other.hasI1001()) {
           mergeI1001(other.getI1001());
         }
@@ -3208,6 +3342,10 @@ public final class Communication {
       }
 
       public final boolean isInitialized() {
+        if (!hasType()) {
+          
+          return false;
+        }
         if (hasI1001()) {
           if (!getI1001().isInitialized()) {
             
@@ -3227,11 +3365,11 @@ public final class Communication {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages parsedMessage = null;
+        com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessages) e.getUnfinishedMessage();
+          parsedMessage = (com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessage) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -3242,18 +3380,54 @@ public final class Communication {
       }
       private int bitField0_;
 
-      // optional .I1001 i1001 = 1;
+      // required .XjfMessageType type = 1;
+      private com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessageType type_ = com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessageType.T1001;
+      /**
+       * <code>required .XjfMessageType type = 1;</code>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required .XjfMessageType type = 1;</code>
+       */
+      public com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessageType getType() {
+        return type_;
+      }
+      /**
+       * <code>required .XjfMessageType type = 1;</code>
+       */
+      public Builder setType(com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessageType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required .XjfMessageType type = 1;</code>
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        type_ = com.xenojoshua.xjf.netty.protobuf.protos.Communication.XjfMessageType.T1001;
+        onChanged();
+        return this;
+      }
+
+      // optional .I1001 i1001 = 2;
       private com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001 i1001_ = com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001, com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001.Builder, com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001OrBuilder> i1001Builder_;
       /**
-       * <code>optional .I1001 i1001 = 1;</code>
+       * <code>optional .I1001 i1001 = 2;</code>
        */
       public boolean hasI1001() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional .I1001 i1001 = 1;</code>
+       * <code>optional .I1001 i1001 = 2;</code>
        */
       public com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001 getI1001() {
         if (i1001Builder_ == null) {
@@ -3263,7 +3437,7 @@ public final class Communication {
         }
       }
       /**
-       * <code>optional .I1001 i1001 = 1;</code>
+       * <code>optional .I1001 i1001 = 2;</code>
        */
       public Builder setI1001(com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001 value) {
         if (i1001Builder_ == null) {
@@ -3275,11 +3449,11 @@ public final class Communication {
         } else {
           i1001Builder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>optional .I1001 i1001 = 1;</code>
+       * <code>optional .I1001 i1001 = 2;</code>
        */
       public Builder setI1001(
           com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001.Builder builderForValue) {
@@ -3289,15 +3463,15 @@ public final class Communication {
         } else {
           i1001Builder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>optional .I1001 i1001 = 1;</code>
+       * <code>optional .I1001 i1001 = 2;</code>
        */
       public Builder mergeI1001(com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001 value) {
         if (i1001Builder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
               i1001_ != com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001.getDefaultInstance()) {
             i1001_ =
               com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001.newBuilder(i1001_).mergeFrom(value).buildPartial();
@@ -3308,11 +3482,11 @@ public final class Communication {
         } else {
           i1001Builder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>optional .I1001 i1001 = 1;</code>
+       * <code>optional .I1001 i1001 = 2;</code>
        */
       public Builder clearI1001() {
         if (i1001Builder_ == null) {
@@ -3321,19 +3495,19 @@ public final class Communication {
         } else {
           i1001Builder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
       /**
-       * <code>optional .I1001 i1001 = 1;</code>
+       * <code>optional .I1001 i1001 = 2;</code>
        */
       public com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001.Builder getI1001Builder() {
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         onChanged();
         return getI1001FieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .I1001 i1001 = 1;</code>
+       * <code>optional .I1001 i1001 = 2;</code>
        */
       public com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001OrBuilder getI1001OrBuilder() {
         if (i1001Builder_ != null) {
@@ -3343,7 +3517,7 @@ public final class Communication {
         }
       }
       /**
-       * <code>optional .I1001 i1001 = 1;</code>
+       * <code>optional .I1001 i1001 = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001, com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001.Builder, com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1001OrBuilder> 
@@ -3359,18 +3533,18 @@ public final class Communication {
         return i1001Builder_;
       }
 
-      // optional .I1002 i1002 = 2;
+      // optional .I1002 i1002 = 3;
       private com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002 i1002_ = com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002, com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002.Builder, com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002OrBuilder> i1002Builder_;
       /**
-       * <code>optional .I1002 i1002 = 2;</code>
+       * <code>optional .I1002 i1002 = 3;</code>
        */
       public boolean hasI1002() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional .I1002 i1002 = 2;</code>
+       * <code>optional .I1002 i1002 = 3;</code>
        */
       public com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002 getI1002() {
         if (i1002Builder_ == null) {
@@ -3380,7 +3554,7 @@ public final class Communication {
         }
       }
       /**
-       * <code>optional .I1002 i1002 = 2;</code>
+       * <code>optional .I1002 i1002 = 3;</code>
        */
       public Builder setI1002(com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002 value) {
         if (i1002Builder_ == null) {
@@ -3392,11 +3566,11 @@ public final class Communication {
         } else {
           i1002Builder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
-       * <code>optional .I1002 i1002 = 2;</code>
+       * <code>optional .I1002 i1002 = 3;</code>
        */
       public Builder setI1002(
           com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002.Builder builderForValue) {
@@ -3406,15 +3580,15 @@ public final class Communication {
         } else {
           i1002Builder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
-       * <code>optional .I1002 i1002 = 2;</code>
+       * <code>optional .I1002 i1002 = 3;</code>
        */
       public Builder mergeI1002(com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002 value) {
         if (i1002Builder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
               i1002_ != com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002.getDefaultInstance()) {
             i1002_ =
               com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002.newBuilder(i1002_).mergeFrom(value).buildPartial();
@@ -3425,11 +3599,11 @@ public final class Communication {
         } else {
           i1002Builder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
-       * <code>optional .I1002 i1002 = 2;</code>
+       * <code>optional .I1002 i1002 = 3;</code>
        */
       public Builder clearI1002() {
         if (i1002Builder_ == null) {
@@ -3438,19 +3612,19 @@ public final class Communication {
         } else {
           i1002Builder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
       /**
-       * <code>optional .I1002 i1002 = 2;</code>
+       * <code>optional .I1002 i1002 = 3;</code>
        */
       public com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002.Builder getI1002Builder() {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         onChanged();
         return getI1002FieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .I1002 i1002 = 2;</code>
+       * <code>optional .I1002 i1002 = 3;</code>
        */
       public com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002OrBuilder getI1002OrBuilder() {
         if (i1002Builder_ != null) {
@@ -3460,7 +3634,7 @@ public final class Communication {
         }
       }
       /**
-       * <code>optional .I1002 i1002 = 2;</code>
+       * <code>optional .I1002 i1002 = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002, com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002.Builder, com.xenojoshua.xjf.netty.protobuf.protos.Communication.I1002OrBuilder> 
@@ -3476,15 +3650,15 @@ public final class Communication {
         return i1002Builder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:XjfMessages)
+      // @@protoc_insertion_point(builder_scope:XjfMessage)
     }
 
     static {
-      defaultInstance = new XjfMessages(true);
+      defaultInstance = new XjfMessage(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:XjfMessages)
+    // @@protoc_insertion_point(class_scope:XjfMessage)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
@@ -3508,10 +3682,10 @@ public final class Communication {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_I1002_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_XjfMessages_descriptor;
+    internal_static_XjfMessage_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_XjfMessages_fieldAccessorTable;
+      internal_static_XjfMessage_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3526,9 +3700,11 @@ public final class Communication {
       "layerGroup\022\n\n\002id\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\030\n\007" +
       "players\030\003 \003(\0132\007.Player\" \n\005I1001\022\027\n\006playe" +
       "r\030\001 \002(\0132\007.Player\"$\n\005I1002\022\033\n\005group\030\001 \002(\013" +
-      "2\014.PlayerGroup\";\n\013XjfMessages\022\025\n\005i1001\030\001" +
-      " \001(\0132\006.I1001\022\025\n\005i1002\030\002 \001(\0132\006.I1002B*\n(c" +
-      "om.xenojoshua.xjf.netty.protobuf.protos"
+      "2\014.PlayerGroup\"Y\n\nXjfMessage\022\035\n\004type\030\001 \002" +
+      "(\0162\017.XjfMessageType\022\025\n\005i1001\030\002 \001(\0132\006.I10" +
+      "01\022\025\n\005i1002\030\003 \001(\0132\006.I1002*&\n\016XjfMessageT" +
+      "ype\022\t\n\005T1001\020\001\022\t\n\005T1002\020\002B*\n(com.xenojos" +
+      "hua.xjf.netty.protobuf.protos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -3559,12 +3735,12 @@ public final class Communication {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_I1002_descriptor,
               new java.lang.String[] { "Group", });
-          internal_static_XjfMessages_descriptor =
+          internal_static_XjfMessage_descriptor =
             getDescriptor().getMessageTypes().get(4);
-          internal_static_XjfMessages_fieldAccessorTable = new
+          internal_static_XjfMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_XjfMessages_descriptor,
-              new java.lang.String[] { "I1001", "I1002", });
+              internal_static_XjfMessage_descriptor,
+              new java.lang.String[] { "Type", "I1001", "I1002", });
           return null;
         }
       };

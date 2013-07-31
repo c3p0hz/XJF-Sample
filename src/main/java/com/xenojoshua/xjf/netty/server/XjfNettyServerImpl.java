@@ -27,7 +27,7 @@ public class XjfNettyServerImpl extends XjfNettyServer {
                 ChannelPipeline pipeline = Channels.pipeline();
 
                 pipeline.addLast("frameDecoder", new ProtobufVarint32FrameDecoder());
-                pipeline.addLast("protobufDecoder", new ProtobufDecoder(Communication.XjfMessages.getDefaultInstance()));
+                pipeline.addLast("protobufDecoder", new ProtobufDecoder(Communication.XjfMessage.getDefaultInstance()));
 
                 pipeline.addLast("frameEncoder", new ProtobufVarint32LengthFieldPrepender());
                 pipeline.addLast("protobufEncoder", new ProtobufEncoder());

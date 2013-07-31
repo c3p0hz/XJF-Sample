@@ -29,7 +29,14 @@ message I1002 {
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 //-* Messages Object
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-message XjfMessages {
-    optional I1001 i1001 = 1;
-    optional I1002 i1002 = 2;
+enum XjfMessageType {
+    T1001 = 1;
+    T1002 = 2;
+}
+
+message XjfMessage {
+    required XjfMessageType type = 1;
+
+    optional I1001 i1001 = 2;
+    optional I1002 i1002 = 3;
 }
