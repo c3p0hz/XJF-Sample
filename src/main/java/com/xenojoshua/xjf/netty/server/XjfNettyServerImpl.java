@@ -9,8 +9,14 @@ import org.jboss.netty.handler.codec.protobuf.ProtobufDecoder;
 import org.jboss.netty.handler.codec.protobuf.ProtobufEncoder;
 import org.jboss.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 import org.jboss.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
+import org.jboss.netty.handler.execution.ExecutionHandler;
+import org.jboss.netty.handler.execution.OrderedMemoryAwareThreadPoolExecutor;
 
 public class XjfNettyServerImpl extends XjfNettyServer {
+
+    private static ExecutionHandler executionHandler = new ExecutionHandler(
+        new OrderedMemoryAwareThreadPoolExecutor(16, 1048576, 1048576)
+    );
 
     public XjfNettyServerImpl(String host, int port) {
         super(host, port);
@@ -32,6 +38,7 @@ public class XjfNettyServerImpl extends XjfNettyServer {
                 pipeline.addLast("frameEncoder", new ProtobufVarint32LengthFieldPrepender());
                 pipeline.addLast("protobufEncoder", new ProtobufEncoder());
 
+                pipeline.addLast("executor", executionHandler);
                 pipeline.addLast("handler", new XjfNettyServerHandler());
 
                 return pipeline;
