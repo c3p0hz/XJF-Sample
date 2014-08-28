@@ -28,7 +28,7 @@ public class Runner {
         boolean isIDE = false;
         String  mode = "server";
         String  host = "127.0.0.1";
-        int     port = 8080;
+        int     port = 8089;
 
         // isIDE: validation args[0]
         if (!XjfValidator.isNumeric(args[0])) {
